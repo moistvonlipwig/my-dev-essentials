@@ -1,0 +1,8 @@
+sudo apt update
+sudo apt install -y python3-pip
+
+python3 -m pip install --user black flake8 pylint
+
+python3 -m venv ~/.venvs/h1-ai-env
+source ~/.venvs/vim-tools/bin/activate
+pip install black flake8 pylint

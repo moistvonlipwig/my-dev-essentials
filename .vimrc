@@ -102,8 +102,8 @@ let g:ale_fix_on_save = 1
 
 " CoC (completion)
 let g:coc_global_extensions = [
-\ 'coc-pyright',    " Python language server
-\ 'coc-clangd',     " C/C++ completion
+\ 'coc-pyright',   
+\ 'coc-clangd',     
 \ 'coc-snippets'
 \ ]
 
