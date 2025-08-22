@@ -9,5 +9,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Launch vim and run
 :PlugInstall
 
+sudo apt install fdfind
 echo "alias fd=fdfind" >> ~/.bashrc && source ~/.bashrc
+
+# For CoC (Node.js LTS)
+sudo apt install -y nodejs npm
+# or install a newer Node via NodeSource if Ubuntu's is old
+
+# Linters/formatters used by your config
+python3 -m pip install --user black flake8 pylint
+sudo apt install -y clang-format clangd ripgrep fd-find
 
