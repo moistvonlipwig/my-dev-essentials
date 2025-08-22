@@ -18,6 +18,9 @@ On GitHub
 
 - - If prompted, confirm access to your account on GitHub. For more information, see Sudo mode.
 
-Change remote URL to use ssh format
+Change remote URL to use ssh format if already cloned
 
- git remote set-url origin git@github.com:moistvonlipwig/my-dev-essentials.git 
+git remote set-url origin git@github.com:moistvonlipwig/my-dev-essentials.git 
+
+To clone a new repository
+- git clone git@github.com:moistvonlipwig/cteli-itsec.git
