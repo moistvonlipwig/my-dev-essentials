@@ -20,7 +20,7 @@ echo "==> Installing base packages (Ubuntu/Debian)..."
 if command -v apt >/dev/null 2>&1; then
   sudo apt update
   sudo apt install -y git vim tmux fzf ripgrep htop curl wget net-tools \
-    bat eza tree build-essential python3 python3-pip python3-venv
+    bat eza tree build-essential python3 python3-pip python3-venv xclip
 else
   echo "apt not found; skip package install."
 fi
