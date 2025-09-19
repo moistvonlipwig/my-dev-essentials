@@ -1,0 +1,37 @@
+[user]
+        name = Chris Teli
+        email = develop.4teli@gmail.com
+
+[init]
+        defaultBranch = main
+
+[core]
+        editor = vim
+        autocrlf = input
+        filemode = false
+
+[color]
+        ui = auto
+
+[pull]
+        ff = only
+
+[merge]
+        ff = false
+
+[rebase]
+        autosquash = true
+
+[alias]
+        st = status -sb
+        co = checkout
+        br = branch
+        cm = commit -m
+        ca = commit --amend --no-edit
+        lg = log --oneline --graph --decorate --all
+        lga = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset) %C(dim white)%d%C(reset)'
+        last = log -1 HEAD
+        unstage = reset HEAD --
+        undo = reset --soft HEAD~1
+        wip = commit -am "WIP"
+
