@@ -1,28 +1,9 @@
-sudo apt update
-sudo apt install -y python3-pip
+# Python Setup (Conda-only)
 
-python3 -m pip install --user black flake8 pylint
-
-python3 -m venv ~/.venvs/h1-ai-env
-source ~/.venvs/vim-tools/bin/activate
-pip install black flake8 pylint
-
-Using Conda
-curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-
-Using Conda Env
-conda env export > environment.yml
-conda env create -f environment 
-
-Updating env
-Make sure the environment is not active. If it is, run:
-
-Bash
-conda deactivate
-
-Run the update command:
-Bash
-conda env update --file environment.yml --prune
-
-
+## Install Miniconda (non-interactive)
+```bash
+# installs to ~/miniconda3
+curl -fsSL -o /tmp/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash /tmp/miniconda.sh -b -p "$HOME/miniconda3"
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+conda init bash   # adds init lines to ~/.bashrc

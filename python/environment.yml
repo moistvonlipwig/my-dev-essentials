@@ -1,0 +1,24 @@
+name: h1_ai_env
+channels:
+    - pytorch
+    - nvidia
+    - defaults
+dependencies:
+    - python=3.11
+    - pytorch
+    - torchvision
+    - torchaudio
+    - pytorch-cuda=12.1        # from nvidia channel
+    - faiss-gpu                # from pytorch channel
+    - jupyterlab
+    - matplotlib
+    - scikit-learn
+    - requests
+    - pyyaml
+    - flake8
+    - pylint
+    - black
+    - pip
+# - pip:
+#   #     - <any-extra-pip-only-packages>
+#
