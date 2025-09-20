@@ -1,0 +1,72 @@
+# Clean, two-line prompt: left = path+git, right = conda/python+duration
+add_newline = true
+
+format = """
+$hostname$container$directory$git_branch$git_status$fill$conda$python$cmd_duration
+$character"""
+
+[character]
+success_symbol = "➜ "
+error_symbol   = "✗ "
+vimcmd_symbol  = "❮ "
+
+[directory]
+style = "bold cyan"
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " RO"
+
+[hostname]
+ssh_only = true
+format = "[$hostname]($style) "
+style = "dimmed green"
+
+[git_branch]
+format = "[$branch]($style) "
+style = "bold purple"
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_status]
+style = "purple"
+format = "[$all_status$ahead_behind]($style) "
+conflicted = "×${count} "
+ahead      = "⇡${count} "
+behind     = "⇣${count} "
+stashed    = "S${count} "
+staged     = "+${count} "
+modified   = "!${count} "
+deleted    = "-${count} "
+untracked  = "?${count} "
+
+[conda]
+# Shows only when an env is active; shows 'base' too (set ignore_base=true to hide)
+format = "[conda:$environment]($style) "
+style  = "bold green"
+ignore_base = false
+
+[python]
+# Show venv name (if not using conda) to avoid duplication
+format = "[$virtualenv]($style) "
+style  = "yellow dimmed"
+
+[cmd_duration]
+min_time = 2000   # show if command took > 2s
+format = "took [$duration]($style)"
+style = "dimmed"
+
+[container]
+format = "[ctr:$name]($style) "
+style  = "dimmed red"
+
+# Optional niceties
+[jobs]
+symbol = "◴ "
+style = "dimmed"
+number_threshold = 1
+symbol_threshold = 1
+
+[status]
+disabled = true   # enable if you want non-zero exit codes shown
+

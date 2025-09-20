@@ -87,3 +87,11 @@ alias svim='sudo vim'
 alias g='grep --color=auto -i'
 alias cls='clear && ls'
 
+# ========================
+# RIP Grep
+# ========================
+alias rgpy='rg -nS -t py'
+alias rgsh='rg -nS -t sh'
+alias rgtxt='rg -nS -t txt'
+alias rgjs='rg -nS -t js -t ts'
+
