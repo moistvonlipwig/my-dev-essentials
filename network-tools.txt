@@ -1,7 +1,0 @@
-sudo apt install net-tools traceroute nmap dnsutils tcpdump iftop iperf3 htop -y
-
-# VPN Tunnel
-curl -fsSL https://tailscale.com/install.sh | sh
-sudo tailscale up --ssh
-
-
