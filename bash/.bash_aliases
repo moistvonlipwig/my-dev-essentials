@@ -95,3 +95,9 @@ alias rgsh='rg -nS -t sh'
 alias rgtxt='rg -nS -t txt'
 alias rgjs='rg -nS -t js -t ts'
 
+# ========================
+# Tree
+# ========================
+alias tra='tree -a -I '.git' '
+alias ts='tree -h -a -I '.git' '
+alias tf='tree -f -a -I '.git' '
