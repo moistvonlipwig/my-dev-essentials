@@ -1,0 +1,46 @@
+## Clean Up Partial Installs
+sudo apt purge -y 'cuda*' 'nvidia-cuda*'
+sudo apt autoremove -y
+sudo rm -rf /usr/local/cuda*
+conda deactivate
+conda env remove -n h1_ai_env
+
+## Install Toolkit
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-ubuntu2404.pin
+sudo mv cuda-ubuntu2404.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/3bf863cc.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /"
+sudo apt update
+sudo apt install -y cuda-toolkit-12-5
+
+## Update path
+echo 'export PATH=/usr/local/cuda-12.5/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda-12.5/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+source ~/.bashrc
+
+
+## Verify install
+nvcc --version
+ls -l /usr/local/cuda-12.5/lib64/libcudart.so*
+
+### Expected output
+nvcc: NVIDIA (R) Cuda compiler driver
+Built on [date]
+Cuda compilation tools, release 12.5, V12.5.xxx
+...
+/usr/local/cuda-12.5/lib64/libcudart.so  /usr/local/cuda-12.5/lib64/libcudart.so.12.5  ...
+
+
+## Install CUDNN
+
+sudo apt install -y nvidia-cudnn
+sudo ldconfig
+cat /usr/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+
+
+## Check permissions
+ls -l /dev/nvidia*
+sudo chmod 666 /dev/nvidia*
+sudo usermod -aG video $USER
+
+
