@@ -24,3 +24,7 @@ git remote set-url origin git@github.com:moistvonlipwig/my-dev-essentials.git
 
 To clone a new repository
 - git clone git@github.com:moistvonlipwig/cteli-itsec.git
+
+- Add github cli
+-- Ubuntu 
+sudo apt install gh
