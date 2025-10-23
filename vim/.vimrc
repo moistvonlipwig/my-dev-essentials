@@ -120,3 +120,6 @@ nnoremap <C-f> :Ag<CR>        " Search in project
 " Save with Ctrl-S
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>a
+
+" Coc completion confirm key
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

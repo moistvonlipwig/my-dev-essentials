@@ -54,7 +54,7 @@ if ensure_cmd apt; then
   sudo apt update
   sudo apt install -y \
     git vim tmux fzf ripgrep htop curl wget net-tools \
-    bat eza tree build-essential python3 python3-pip python3-venv xclip
+    bat eza tree build-essential python3 python3-pip python3-venv xclip screen
 else
   echo "apt not found; skipping package install."
 fi
@@ -80,6 +80,11 @@ if [[ -f "$TARGET_HOME/.bashrc" ]] && ! grep -q 'starship init bash' "$TARGET_HO
   echo 'eval "$(starship init bash)"' >> "$TARGET_HOME/.bashrc"
   echo "Appended Starship init to ~/.bashrc"
 fi
+
+# In update_dev_essentials.sh
+echo "Installing Node.js LTS..."
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install -y nodejs
 
 # ---- dotfiles --------------------------------------------------------------
 echo "==> Symlinking dotfiles..."
