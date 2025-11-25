@@ -28,3 +28,20 @@ To clone a new repository
 - Add github cli
 -- Ubuntu 
 sudo apt install gh
+
+# Kill any running GPG agent (cleans stale sessions)
+gpgconf --kill gpg-agent
+
+# Edit agent config for caching (unlimited time for dev; adjust ttl-sec for prod)
+echo "default-cache-ttl 3600" >> ~/.gnupg/gpg-agent.conf  # 1 hour cache
+echo "max-cache-ttl 7200" >> ~/.gnupg/gpg-agent.conf      # Max 2 hours
+
+# Tell GPG the current TTY (fixes ioctl)
+export GPG_TTY=$(tty)
+
+# Reload agent
+gpg-connect-agent reloadagent /bye
+
+# Cache your passphrase once (enter when prompted)
+echo "test" | gpg --clearsign  # Dummy sign; caches key
+
